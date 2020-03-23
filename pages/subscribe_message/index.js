@@ -93,15 +93,27 @@ Page({
     // 获取订阅信息设置开关
     get_setting: function () {
         var that = this;
+        var user_id = wx.getStorageSync('user_id');
 
         wx.getSetting({
             withSubscriptions: true,
             success(res) {
                 console.log(res);
 
+                var is_open = res.subscriptionsSetting.mainSwitch
                 that.setData({
-                    is_open: res.subscriptionsSetting.mainSwitch
+                    is_open
                 })
+
+                var request_data = {
+                    user_id,
+                    is_subscribe: is_open
+                };
+                
+                //此处调用网络请求更新用户的订阅状态
+                console.log(res);
+                const { status, code, message, response } = res;
+                    
             }
         })
     },
