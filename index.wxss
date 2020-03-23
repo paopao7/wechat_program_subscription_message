@@ -1,0 +1,142 @@
+/* pages/my/subscribe_message/index.wxss */
+page{
+    background-color: #f3f3f3;
+}
+page{
+    background-color: #f3f3f3;
+}
+
+.message_view{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.show_view{
+    margin-top: 50rpx;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.show_left_view{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.show_top_view{
+    color: #444444;
+    font-size: 28rpx;
+}
+
+.show_down_view{
+    color: #949494;
+    font-size: 24rpx;
+}
+
+.show_right_view{
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.explain_view{
+    margin-top: 60rpx;
+}
+
+.explain_title{
+    color: #444444;
+    font-size: 28rpx;
+    line-height: 35rpx;
+}
+
+.explain_con{
+    color: #949494;
+    font-size: 24rpx;
+}
+
+.action_view{
+    margin-top: 80rpx;
+}
+
+.action_item{
+    margin-top: 25rpx;
+    padding-bottom: 25rpx;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: dashed 1rpx #d6d5d5;
+}
+
+.action_left_item{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.action_top_view{
+    color: #444444;
+    font-size: 28rpx;
+}
+
+.action_down_view{
+    color: #949494;
+    font-size: 22rpx;
+    margin-top: 5rpx;
+}
+
+.action_down_less_view{
+    color: #db1f1f;
+}
+
+.action_right_item{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action_btn{
+    color: #ffffff;
+    font-size: 24rpx;
+    width: 120rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+    border-radius: 8rpx;
+    text-align: center;
+    background-color: #1dbc20;
+}
+
+.set_view{
+    margin-top: 90rpx;
+    display: flex;
+    width: 100%;
+}
+
+.set_left_view{
+    width: 90%;
+}
+
+.set_top_view{
+    color: #444444;
+    font-size: 28rpx;
+}
+
+.set_down_view{
+    color: #949494;
+    font-size: 22rpx;
+}
+
+.set_right_view{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon_more{
+    color: #b9b8b8;
+    font-size: 30rpx;
+}
+
+.icon_more::after{
+    content: '\e606';
+}

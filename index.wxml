@@ -1,0 +1,39 @@
+<!--pages/my/subscribe_message/index.wxml-->
+<view class="message_view">
+    <view class="show_view">
+        <view class="show_left_view">
+            <view class="show_top_view">开通订阅消息功能</view>
+            <view class="show_down_view">向你发送小程序订阅消息</view>
+        </view>
+        <view class="show_right_view">
+            <switch checked="{{is_open}}" disabled="true"></switch>
+        </view>
+    </view>
+    <view class="explain_view">
+        <view class="explain_title">订阅消息说明</view>
+        <view class="explain_con">当订阅次数为0时，无法接受到对应的消息</view>
+        <view class="explain_con">当订阅次数小于5时，以红色提醒</view>
+    </view>
+    <view class="action_view">
+        <block wx:for="{{subscribe_message_list}}" wx:key="index">
+            <view class="action_item">
+                <view class="action_left_item">
+                    <view class="action_top_view">{{item.title}}</view>
+                    <view class='action_down_view {{item.num <= 5?"action_down_less_view":""}}'>共订阅 {{item.num}} 次</view>
+                </view>
+                <view class="action_right_item" id="{{item.id}} " data-template_id="{{item.template_id}}" data-index="{{index}}" bindtap="subscribe_msg">
+                    <view class="action_btn">订阅 +1</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="set_view" bindtap="setting_subscribe_msg">
+        <view class="set_left_view">
+            <view class="set_top_view">微信授权设置</view>
+            <view class="set_down_view">拒绝订阅消息后重新授权</view>
+        </view>
+        <view class="set_right_view">
+            <icon class="iconfont icon_more"></icon>
+        </view>
+    </view>
+</view>
