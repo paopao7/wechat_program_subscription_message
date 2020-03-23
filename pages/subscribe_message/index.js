@@ -8,6 +8,8 @@ Page({
     data: {
         is_open: false, //是否开启消息订阅
         subscribe_message_list: [], //订阅消息数组
+        reject_list: [], //拒绝数组
+        accept_list: [], //同意数组
     },
 
     /**
@@ -100,6 +102,19 @@ Page({
             success(res) {
                 console.log(res);
 
+                //循环获取全部的订阅消息，然后将拒绝、同意的分别追加到不同的数组
+                /**********************说明*****************************/
+                //此处之所以这么做的原因是，在总开关开启的情况下，用户也是可以单独关闭某条模板的，所以需要将数据上传到服务器进行更新操作
+                for (var index in subscriptionsSetting) {
+                    console.log(index)
+                    //拒绝
+                    if (subscriptionsSetting[index] == "reject"){
+                        reject_list.push(index)
+                    } else if(subscriptionsSetting[index] == "accept"){
+                        accept_list.push(index)
+                    }
+                }
+
                 var is_open = res.subscriptionsSetting.mainSwitch
                 that.setData({
                     is_open
@@ -107,13 +122,22 @@ Page({
 
                 var request_data = {
                     user_id,
-                    is_subscribe: is_open
+                    is_subscribe: is_open,
+                    reject_list,
+                    accept_list
                 };
                 
                 //此处调用网络请求更新用户的订阅状态
                 console.log(res);
                 const { status, code, message, response } = res;
-                    
+
+                if(code == 10000){
+                    //更新成功需将两个数组置空
+                    that.setData({
+                            reject_list: [],
+                            accept_list: []
+                        })
+                }
             }
         })
     },
@@ -165,6 +189,8 @@ Page({
                             util.toast_with_txt(message);
                         }
                            
+                    }else{
+                        util.toast_with_txt('该条模板已关闭，请点击"微信授权设置"进行开启');
                     }
                 },
                 fail(err) {
