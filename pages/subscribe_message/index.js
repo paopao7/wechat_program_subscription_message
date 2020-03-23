@@ -133,13 +133,18 @@ Page({
                             user_id,
                             subscribe_message_id: id
                         };
+
                         /*
                             此处为调用网络请求，该部分省略
                             请求成功后将对应下标的值+1
                         */
                         
+                        console.log(res);
+                        const { status, code, message, response } = res;
+
                         if (code == 10000) {
-                            subscribe_message_list[index]['num']++;
+                            subscribe_message_list[index]['num'] = response['num'];
+                            
                             that.setData({
                                 subscribe_message_list
                             })
