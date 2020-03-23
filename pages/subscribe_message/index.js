@@ -134,9 +134,14 @@ Page({
                 if(code == 10000){
                     //更新成功需将两个数组置空
                     that.setData({
-                            reject_list: [],
-                            accept_list: []
-                        })
+                        reject_list: [],
+                        accept_list: []
+                    })
+
+                    //如果用户有关闭某条订阅消息需刷新下列表 因为对应的次数会变成0
+                    if(reject_list.length > 0){
+                        that.get_lists();
+                    }
                 }
             }
         })
