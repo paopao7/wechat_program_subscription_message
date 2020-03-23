@@ -136,7 +136,7 @@ Page({
 
                         /*
                             此处为调用网络请求，该部分省略
-                            请求成功后将对应下标的值+1
+                            请求成功后将对应下标的值修改为服务器返回的值
                         */
                         
                         console.log(res);
@@ -144,7 +144,7 @@ Page({
 
                         if (code == 10000) {
                             subscribe_message_list[index]['num'] = response['num'];
-                            
+
                             that.setData({
                                 subscribe_message_list
                             })
