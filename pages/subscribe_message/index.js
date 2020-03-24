@@ -226,6 +226,13 @@ Page({
             })
         }
     },
+    // 未开启点击提示
+    close_tips: function () {
+        wx.showToast({
+            title: '该订阅消息未开启，请点击底部的"微信授权设置"进行开启',
+            icon: 'none'
+        })
+    },
     //跳转到设置页面
     setting_subscribe_msg: function () {
         wx.openSetting({
