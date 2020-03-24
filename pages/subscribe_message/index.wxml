@@ -21,9 +21,16 @@
                     <view class="action_top_view">{{item.title}}</view>
                     <view class='action_down_view {{item.num <= 5?"action_down_less_view":""}}'>共订阅 {{item.num}} 次</view>
                 </view>
-                <view class="action_right_item" id="{{item.id}} " data-template_id="{{item.template_id}}" data-index="{{index}}" bindtap="subscribe_msg">
-                    <view class="action_btn">订阅 +1</view>
-                </view>
+                <block wx:if='{{item.is_subscribe == 1}}'>
+                    <view class="action_right_item" id="{{item.id}} " data-template_id="{{item.template_id}}" data-index="{{index}}" bindtap="subscribe_msg_add">
+                        <view class="action_btn">订阅 +1</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="action_right_item">
+                        <view class="action_btn action_invalid_btn">未开启</view>
+                    </view>
+                </block>
             </view>
         </block>
     </view>

@@ -106,6 +106,10 @@ page{
     background-color: #1dbc20;
 }
 
+.action_invalid_btn{
+    background-color: #f58c8c;
+}
+
 .set_view{
     margin-top: 90rpx;
     display: flex;
