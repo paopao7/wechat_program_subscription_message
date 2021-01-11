@@ -27,7 +27,7 @@
                     </view>
                 </block>
                 <block wx:else>
-                    <view class="action_right_item">
+                    <view class="action_right_item" id="{{item.id}} " data-template_id="{{item.template_id}}" data-index="{{index}}" bindtap="subscribe_msg_add">
                         <view class="action_btn action_invalid_btn">未开启</view>
                     </view>
                 </block>
